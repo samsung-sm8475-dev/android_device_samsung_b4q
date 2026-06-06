@@ -4,18 +4,18 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-include device/samsung/sm8550-common/BoardConfigCommon.mk
+include device/samsung/sm8475-common/BoardConfigCommon.mk
 
-DEVICE_PATH := device/samsung/b5q
+DEVICE_PATH := device/samsung/b4q
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := b5q
+TARGET_OTA_ASSERT_DEVICE := b4q
 
 # Display
 TARGET_SCREEN_DENSITY := 480
 
 # Kernel
-TARGET_KERNEL_CONFIG := b5q_defconfig
+TARGET_KERNEL_CONFIG := b4q_defconfig
 
 # Kernel Modules
 BOARD_RECOVERY_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
@@ -54,10 +54,6 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/wlan/platform \
     qcom/opensource/wlan/qcacld-3.0/.qca6490 \
     qcom/opensource/bt-kernel
-
-# Partitions
-BOARD_SUPER_PARTITION_SIZE := 12266242048
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 109576192
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop

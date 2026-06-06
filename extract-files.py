@@ -15,10 +15,10 @@ from extract_utils.main import (
 )
 
 namespace_imports = [
-    'device/samsung/sm8550-common',
-    'hardware/qcom-caf/sm8550',
+    'device/samsung/sm8475-common',
+    'hardware/qcom-caf/sm8475',
     'vendor/qcom/opensource/commonsys-intf/display',
-    'vendor/samsung/sm8550-common',
+    'vendor/samsung/sm8475-common',
 ]
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
@@ -34,12 +34,12 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 module = ExtractUtilsModule(
-    'b5q',
+    'b4q',
     'samsung',
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device_with_common(module, 'sm8550-common', module.vendor)
+    utils = ExtractUtils.device_with_common(module, 'sm8475-common', module.vendor)
     utils.run()

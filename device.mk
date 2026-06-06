@@ -21,7 +21,7 @@ PRODUCT_COPY_FILES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.b5q.rc
+    init.b4q.rc
 
 # Power
 PRODUCT_COPY_FILES += \
@@ -52,7 +52,7 @@ PRODUCT_PACKAGES += \
     firmware_WCNSS_qcom_cfg.ini_symlink
 
 # Inherit from the common OEM chipset makefile.
-$(call inherit-product, device/samsung/sm8550-common/common.mk)
+$(call inherit-product, device/samsung/sm8475-common/common.mk)
 
 # Inherit from the proprietary files makefile.
-$(call inherit-product, vendor/samsung/b5q/b5q-vendor.mk)
+$(call inherit-product, vendor/samsung/b4q/b4q-vendor.mk)

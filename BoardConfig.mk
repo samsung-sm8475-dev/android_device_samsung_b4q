@@ -15,6 +15,15 @@ TARGET_OTA_ASSERT_DEVICE := b4q
 TARGET_SCREEN_DENSITY := 480
 
 # Kernel
+TARGET_FORCE_PREBUILT_KERNEL ?= true
+ifeq ($(TARGET_FORCE_PREBUILT_KERNEL),true)
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb.img
+BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)
+BOARD_INCLUDE_DTB_IN_BOOTIMG :=
+BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilts/dtbo.img
+BOARD_KERNEL_SEPARATED_DTBO :=
+else
 TARGET_KERNEL_CONFIG := b4q_defconfig
 
 # Kernel Modules
@@ -54,6 +63,7 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/wlan/platform \
     qcom/opensource/wlan/qcacld-3.0/.qca6490 \
     qcom/opensource/bt-kernel
+endif
 
 # Properties
 TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
